@@ -15,9 +15,9 @@ BASE_PATH=`/usr/bin/dirname "$SCRIPT_PATH"`/..
 USER=root
 GROUP=root
 
-PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/rbenv/shims/
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
-HEARTBEAT="/usr/local/rbenv/shims/ruby $BASE_PATH/bin/heartbeat"
+HEARTBEAT=$BASE_PATH/bin/heartbeat
 
 [ -x "$HEARTBEAT" ] || exit 0
 
@@ -28,7 +28,7 @@ do_stop()
 {
   echo "Running the heartbeat shutdown script."
   
-  /bin/su -l $USER -c "$HEARTBEAT --config $BASE_PATH/config/shutdown.yml"
+  /bin/su -l $USER -c /usr/local/rbenv/shims/ruby "$HEARTBEAT --config $BASE_PATH/config/shutdown.yml"
 }
 
 case "$1" in

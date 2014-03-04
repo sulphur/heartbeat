@@ -15,9 +15,9 @@ BASE_PATH=`/usr/bin/dirname "$SCRIPT_PATH"`/..
 USER=root
 GROUP=root
 
-PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/rbenv/shims/
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
-HEARTBEAT="/usr/local/rbenv/shims/ruby $BASE_PATH/bin/heartbeat"
+HEARTBEAT=$BASE_PATH/bin/heartbeat
 PIDFILE=/tmp/heartbeat.pid
 
 [ -x "$HEARTBEAT" ] || exit 0
@@ -29,7 +29,7 @@ do_start()
 {
   echo "Starting heartbeat."
 
-  start-stop-daemon --group $GROUP --chuid $USER --background --start --quiet --pidfile $PIDFILE --make-pidfile --chdir "$BASE_PATH" --exec $HEARTBEAT
+  start-stop-daemon --group $GROUP --chuid $USER --background --start --quiet --pidfile $PIDFILE --make-pidfile --chdir "$BASE_PATH" --exec /usr/local/rbenv/shims/ruby $HEARTBEAT
 }
 
 do_stop()
