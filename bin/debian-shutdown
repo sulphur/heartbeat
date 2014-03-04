@@ -28,7 +28,7 @@ do_stop()
 {
   echo "Running the heartbeat shutdown script."
   
-  /bin/su -l $USER -c /usr/local/rbenv/shims/ruby "$HEARTBEAT --config $BASE_PATH/config/shutdown.yml"
+  /bin/su -l $USER -c "$HEARTBEAT --config $BASE_PATH/config/shutdown.yml"
 }
 
 case "$1" in
