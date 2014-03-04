@@ -17,7 +17,7 @@ GROUP=root
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/rbenv/shims/
 
-HEARTBEAT=$BASE_PATH/bin/heartbeat
+HEARTBEAT="/usr/local/rbenv/shims/ruby $BASE_PATH/bin/heartbeat"
 PIDFILE=/tmp/heartbeat.pid
 
 [ -x "$HEARTBEAT" ] || exit 0
