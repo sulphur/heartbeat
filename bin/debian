@@ -15,7 +15,7 @@ BASE_PATH=`/usr/bin/dirname "$SCRIPT_PATH"`/..
 USER=root
 GROUP=root
 
-PATH=/sbin:/usr/sbin:/bin:/usr/bin
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/rbenv/shims/
 
 HEARTBEAT=$BASE_PATH/bin/heartbeat
 PIDFILE=/tmp/heartbeat.pid
